@@ -8,7 +8,7 @@ def intersection(list1, list2)
 
   list2.each do |item|
     if hash[item]
-      compare << element
+      intersect << item
     end
   end
 
