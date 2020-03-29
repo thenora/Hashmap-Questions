@@ -7,18 +7,18 @@ def palindrome_permutation?(string)
   array = string.chars
 
   array.each do |char|
-    hash[char] += 1
-  end
-
-  count = 0
-
-  values = hash.values
-  values.each do |num|
-    if num.odd? == true
-      count += 1
+    if hash[char]
+      hash[char] += 1
+    else
+      hash[char] = 1
     end
-    return false if count > 1
   end
 
-  return true
+  odd = 0
+
+  hash.each do |key, value|
+    odd += 1 if value % 2 != 0
+  end
+
+  odd > 1 ? false : true
 end
